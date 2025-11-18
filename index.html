@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b57a4"/>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <title>100×100 Отжиманий — Pushup Challenge</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">100 × 100 — Pushup Challenge</div>
+    <div class="subtitle">Старт: <span id="startDateText"></span> — Конец: <span id="endDateText"></span></div>
+  </header>
+
+  <main class="container">
+    <section class="card dashboard">
+      <div class="row between center">
+        <div>
+          <h2 id="dayTitle">День —</h2>
+          <div class="muted" id="progressText">0 / 100</div>
+        </div>
+        <div class="bigProgress">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <path class="circle-bg"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path id="progressCircle" class="circle"
+              stroke-dasharray="0, 100"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.35" class="percentage" id="percentText">0%</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="todayBlock">
+        <div>
+          <div class="muted">Сегодня — 100 отжиманий</div>
+          <div class="small muted" id="todayDate"></div>
+        </div>
+        <div>
+          <button id="toggleToday" class="btn primary large">Отметить как выполнено</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card calendarCard">
+      <div class="row between center">
+        <h3>Календарь 10×10</h3>
+        <div class="controls">
+          <button id="markAll" class="btn">Отметить все</button>
+          <button id="clearAll" class="btn danger">Сбросить все</button>
+        </div>
+      </div>
+      <div id="calendarGrid" class="grid"></div>
+    </section>
+
+    <section class="card statsCard">
+      <h3>Статистика</h3>
+      <div class="statRow"><div>Выполнено</div><div id="completedCount">0 / 100</div></div>
+      <div class="statRow"><div>Процент</div><div id="percentDone">0%</div></div>
+      <div class="statRow"><div>Текущая серия</div><div id="streak">0</div></div>
+      <div class="actionsRow">
+        <button id="exportBtn" class="btn">Экспорт JSON</button>
+        <button id="importBtn" class="btn">Импорт JSON</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">Добавь на главный экран — работает как приложение.</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
